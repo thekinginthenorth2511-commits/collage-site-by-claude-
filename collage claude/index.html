@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KLE BCA Nipani – Shape Your Digital Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">KLE</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <p>Loading Excellence...</p>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo" onclick="showPage('home')">
+      <div class="logo-badge">KLE</div>
+      <div>
+        <span class="logo-name">BCA Nipani</span>
+        <span class="logo-tag">KLE Society</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="showPage('home')">Home</a></li>
+      <li><a href="#about" onclick="showPage('about')">About</a></li>
+      <li><a href="#courses" onclick="showPage('courses')">Courses</a></li>
+      <li><a href="#admissions" onclick="showPage('admissions')">Admissions</a></li>
+      <li><a href="#faculty" onclick="showPage('faculty')">Faculty</a></li>
+      <li><a href="#campus" onclick="showPage('campus')">Campus</a></li>
+      <li><a href="#placements" onclick="showPage('placements')">Placements</a></li>
+      <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search..." />
+        <button onclick="doSearch()">&#128269;</button>
+      </div>
+      <button class="btn-dark-toggle" id="darkToggle" onclick="toggleDark()" title="Toggle Dark Mode">&#9790;</button>
+      <button class="btn-login" onclick="showPage('login')">Login</button>
+      <button class="nav-burger" id="navBurger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== SEARCH RESULTS OVERLAY ===== -->
+<div id="searchResults" class="search-results hidden">
+  <div class="search-results-inner">
+    <button class="close-btn" onclick="closeSearch()">&#10005;</button>
+    <h3>Search Results</h3>
+    <div id="searchList"></div>
+  </div>
+</div>
+
+<!-- ===== PAGE: HOME ===== -->
+<section id="page-home" class="page active">
+
+  <!-- Hero Slider -->
+  <div class="hero" id="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="--bg: linear-gradient(135deg,#0a1628 0%,#1a3a6e 60%,#0d5bbd 100%)">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+          <span class="hero-badge">Est. 2001 · KLE Society</span>
+          <h1>Shape Your<br/><span class="gradient-text">Digital Future</span></h1>
+          <p>Premier Bachelor of Computer Applications program in Nipani. Join 1,200+ alumni leading the tech industry.</p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="showPage('admissions')">Apply Now <span>&#8594;</span></button>
+            <button class="btn-outline" onclick="showPage('login')">Student Login</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong data-count="98">0</strong>%<br/><small>Placement Rate</small></div>
+            <div><strong data-count="1200">0</strong>+<br/><small>Alumni</small></div>
+            <div><strong data-count="45">0</strong>+<br/><small>Recruiters</small></div>
+            <div><strong data-count="22">0</strong><br/><small>Years Legacy</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="--bg: linear-gradient(135deg,#0a2818 0%,#0d6b3c 60%,#1dbf73 100%)">
+        <div class="hero-content">
+          <span class="hero-badge">Academic Excellence</span>
+          <h1>Learn. Build.<br/><span class="gradient-text">Innovate.</span></h1>
+          <p>Cutting-edge curriculum designed with industry experts. Hands-on labs, live projects, and mentorship.</p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="showPage('courses')">Explore Courses <span>&#8594;</span></button>
+            <button class="btn-outline" onclick="showPage('campus')">Campus Life</button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="--bg: linear-gradient(135deg,#1a0a28 0%,#5a1a8e 60%,#9b4dca 100%)">
+        <div class="hero-content">
+          <span class="hero-badge">100% Placements</span>
+          <h1>Your Career<br/><span class="gradient-text">Starts Here.</span></h1>
+          <p>Dedicated placement cell with top MNCs visiting campus. Average package ₹4.5 LPA.</p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="showPage('placements')">View Placements <span>&#8594;</span></button>
+            <button class="btn-outline" onclick="showPage('contact')">Get In Touch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-nav">
+      <button class="hero-prev" onclick="changeSlide(-1)">&#8249;</button>
+      <div class="hero-dots" id="heroDots"></div>
+      <button class="hero-next" onclick="changeSlide(1)">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- Marquee Banner -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>&#127881; Admissions Open 2025–26</span>
+      <span>&#127942; 100% Placement Record</span>
+      <span>&#128218; New AI & ML Electives Launched</span>
+      <span>&#127881; TCS, Infosys, Wipro Campus Drive — Register Now</span>
+      <span>&#127942; KLE BCA Nipani Ranked #1 in North Karnataka</span>
+      <span>&#128218; Scholarship Exam on 15th June 2025</span>
+      <span>&#127881; Admissions Open 2025–26</span>
+      <span>&#127942; 100% Placement Record</span>
+      <span>&#128218; New AI & ML Electives Launched</span>
+    </div>
+  </div>
+
+  <!-- Why KLE -->
+  <section class="section" id="why-kle">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why Choose Us</span>
+        <h2>Excellence in Every<br/>Dimension</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-in">
+          <div class="feature-icon">&#127979;</div>
+          <h3>World-Class Faculty</h3>
+          <p>PhD holders and industry veterans with 15+ years of teaching and corporate experience.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">&#128187;</div>
+          <h3>Modern Labs</h3>
+          <p>State-of-the-art computer labs with latest hardware and licensed software suites.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">&#127891;</div>
+          <h3>Industry Curriculum</h3>
+          <p>Syllabus crafted in collaboration with TCS, Infosys, and leading tech firms.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">&#127942;</div>
+          <h3>100% Placements</h3>
+          <p>Dedicated placement cell ensuring every student lands their dream job.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">&#127968;</div>
+          <h3>Vibrant Campus</h3>
+          <p>Rich campus life with fests, hackathons, sports, and cultural activities.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon">&#127758;</div>
+          <h3>Global Network</h3>
+          <p>1200+ alumni working in 25+ countries across top tech companies worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="quick-links-grid">
+        <div class="quick-card" onclick="showPage('admissions')">
+          <span>&#128196;</span>
+          <h4>Apply Now</h4>
+          <p>Start your application for 2025-26</p>
+          <span class="arrow">&#8594;</span>
+        </div>
+        <div class="quick-card" onclick="downloadBrochure()">
+          <span>&#128209;</span>
+          <h4>Download Brochure</h4>
+          <p>Get detailed program information</p>
+          <span class="arrow">&#8594;</span>
+        </div>
+        <div class="quick-card" onclick="showPage('faculty')">
+          <span>&#128101;</span>
+          <h4>Meet Faculty</h4>
+          <p>Our expert teaching team</p>
+          <span class="arrow">&#8594;</span>
+        </div>
+        <div class="quick-card" onclick="showPage('placements')">
+          <span>&#128188;</span>
+          <h4>Placements</h4>
+          <p>Career success stories</p>
+          <span class="arrow">&#8594;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Announcements -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Latest Updates</span>
+        <h2>Announcements</h2>
+      </div>
+      <div class="announce-grid">
+        <div class="announce-card" id="announcements-home">
+          <div class="announce-item urgent">
+            <span class="announce-dot"></span>
+            <div>
+              <strong>Admissions Open 2025-26</strong>
+              <p>Applications are now open for BCA first year. Limited seats available.</p>
+              <small>Posted: 1 June 2025</small>
+            </div>
+          </div>
+          <div class="announce-item">
+            <span class="announce-dot"></span>
+            <div>
+              <strong>TCS Campus Drive – July 5th</strong>
+              <p>TCS will be conducting campus recruitment for final year students.</p>
+              <small>Posted: 28 May 2025</small>
+            </div>
+          </div>
+          <div class="announce-item">
+            <span class="announce-dot"></span>
+            <div>
+              <strong>AI/ML Workshop – June 20th</strong>
+              <p>Two-day hands-on workshop on Artificial Intelligence and Machine Learning.</p>
+              <small>Posted: 25 May 2025</small>
+            </div>
+          </div>
+          <div class="announce-item">
+            <span class="announce-dot"></span>
+            <div>
+              <strong>Scholarship Exam Results Declared</strong>
+              <p>Merit scholarship exam results are now available on the student portal.</p>
+              <small>Posted: 20 May 2025</small>
+            </div>
+          </div>
+        </div>
+        <div class="events-mini">
+          <h3>Upcoming Events</h3>
+          <div class="event-mini-item">
+            <div class="event-date"><span>05</span>Jul</div>
+            <div><strong>TCS Campus Drive</strong><p>Placement Cell, Main Building</p></div>
+          </div>
+          <div class="event-mini-item">
+            <div class="event-date"><span>20</span>Jun</div>
+            <div><strong>AI/ML Workshop</strong><p>Lab 3 & Lab 4</p></div>
+          </div>
+          <div class="event-mini-item">
+            <div class="event-date"><span>15</span>Jun</div>
+            <div><strong>Scholarship Exam</strong><p>Examination Hall A</p></div>
+          </div>
+          <div class="event-mini-item">
+            <div class="event-date"><span>01</span>Jul</div>
+            <div><strong>New Semester Begins</strong><p>All Departments</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ===== PAGE: ABOUT ===== -->
+<section id="page-about" class="page">
+  <div class="page-hero">
+    <h1>About KLE BCA Nipani</h1>
+    <p>Two decades of academic excellence and innovation</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <div class="about-intro">
+      <div class="about-text animate-in">
+        <span class="section-tag">Our Story</span>
+        <h2>Shaping Tech Leaders Since 2001</h2>
+        <p>KLE Society's BCA College Nipani is a premier institution affiliated to Karnataka University, Dharwad. Established under the prestigious KLE Society umbrella, we have been nurturing digital talent for over two decades.</p>
+        <p>Located in the heart of Nipani, our campus blends academic rigour with a vibrant student culture, producing graduates who lead in software development, data science, and entrepreneurship.</p>
+        <button class="btn-primary" onclick="showPage('admissions')">Join Our Family &#8594;</button>
+      </div>
+      <div class="about-stats animate-in">
+        <div class="stat-card"><span data-count="22">0</span><small>Years of Excellence</small></div>
+        <div class="stat-card"><span data-count="1200">0</span><small>Alumni Worldwide</small></div>
+        <div class="stat-card"><span data-count="98">0</span><small>% Placement Rate</small></div>
+        <div class="stat-card"><span data-count="45">0</span><small>Industry Partners</small></div>
+      </div>
+    </div>
+
+    <!-- Mission Vision -->
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-icon">&#127919;</div>
+        <h3>Our Mission</h3>
+        <p>To deliver world-class BCA education that empowers students with technical skills, ethical values, and entrepreneurial mindset to thrive in the global digital economy.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon">&#128161;</div>
+        <h3>Our Vision</h3>
+        <p>To be the most sought-after BCA institution in Karnataka, recognized for producing industry-ready graduates who drive technological innovation and societal progress.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon">&#128081;</div>
+        <h3>Our Values</h3>
+        <p>Excellence · Integrity · Innovation · Inclusivity · Collaboration. We believe education is not just about degrees — it's about building character and competence.</p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Our Journey</span>
+      <h2>Milestones That Define Us</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="tl-year">2001</div>
+        <div class="tl-content">
+          <h4>Founded</h4>
+          <p>KLE BCA Nipani established with a vision to democratize quality tech education in North Karnataka.</p>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="tl-year">2005</div>
+        <div class="tl-content">
+          <h4>First Batch Placed</h4>
+          <p>100% placement achieved for the inaugural batch, with students joining Infosys and Wipro.</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="tl-year">2010</div>
+        <div class="tl-content">
+          <h4>New Campus Wing</h4>
+          <p>Expanded campus with new computer labs, library, and student activity center.</p>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="tl-year">2015</div>
+        <div class="tl-content">
+          <h4>NAAC Accreditation</h4>
+          <p>Received 'A' grade from NAAC, validating our commitment to quality education.</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="tl-year">2020</div>
+        <div class="tl-content">
+          <h4>Digital Transformation</h4>
+          <p>Launched smart classrooms, online LMS, and industry-linked internship programs.</p>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="tl-year">2024</div>
+        <div class="tl-content">
+          <h4>AI/ML Specialization</h4>
+          <p>Introduced cutting-edge AI, ML, and Cloud Computing electives in partnership with AWS and Google.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE: COURSES ===== -->
+<section id="page-courses" class="page">
+  <div class="page-hero">
+    <h1>Our Programs</h1>
+    <p>Future-ready curriculum designed with industry leaders</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <div class="section-header">
+      <span class="section-tag">Academics</span>
+      <h2>Bachelor of Computer Applications</h2>
+      <p>A comprehensive 3-year undergraduate program covering all facets of modern computing.</p>
+    </div>
+
+    <div class="courses-grid">
+      <div class="course-card animate-in">
+        <div class="course-sem">Semester 1 & 2</div>
+        <div class="course-icon">&#128218;</div>
+        <h3>Foundation Year</h3>
+        <ul>
+          <li>Programming with C</li>
+          <li>Mathematics for Computing</li>
+          <li>Introduction to Computers</li>
+          <li>Business Communication</li>
+          <li>Computer Organization</li>
+        </ul>
+        <div class="course-tag">Core Foundation</div>
+      </div>
+      <div class="course-card animate-in">
+        <div class="course-sem">Semester 3 & 4</div>
+        <div class="course-icon">&#128187;</div>
+        <h3>Core Development</h3>
+        <ul>
+          <li>Data Structures & Algorithms</li>
+          <li>Java Programming OOP</li>
+          <li>Database Management (SQL)</li>
+          <li>Web Development (HTML/CSS/JS)</li>
+          <li>Operating Systems</li>
+        </ul>
+        <div class="course-tag">Core Technical</div>
+      </div>
+      <div class="course-card animate-in">
+        <div class="course-sem">Semester 5 & 6</div>
+        <div class="course-icon">&#127775;</div>
+        <h3>Advanced Specialization</h3>
+        <ul>
+          <li>Python & Data Science</li>
+          <li>Cloud Computing (AWS)</li>
+          <li>Machine Learning Basics</li>
+          <li>Mobile App Development</li>
+          <li>Project Management</li>
+        </ul>
+        <div class="course-tag">Specialization</div>
+      </div>
+      <div class="course-card animate-in featured-course">
+        <div class="course-sem">Electives 2024–25</div>
+        <div class="course-icon">&#129302;</div>
+        <h3>AI & Emerging Tech</h3>
+        <ul>
+          <li>Artificial Intelligence</li>
+          <li>Deep Learning & Neural Nets</li>
+          <li>Cybersecurity Essentials</li>
+          <li>Blockchain Fundamentals</li>
+          <li>IoT & Embedded Systems</li>
+        </ul>
+        <div class="course-tag new">NEW 2025</div>
+      </div>
+    </div>
+
+    <!-- Electives Row -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Certifications</span>
+      <h2>Industry Certifications Offered</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-item"><span>AWS Cloud Practitioner</span></div>
+      <div class="cert-item"><span>Google IT Support</span></div>
+      <div class="cert-item"><span>Oracle Java SE</span></div>
+      <div class="cert-item"><span>Microsoft Azure Fundamentals</span></div>
+      <div class="cert-item"><span>Python PCEP / PCAP</span></div>
+      <div class="cert-item"><span>Cisco CCNA Basics</span></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">FAQs</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the duration of BCA program? <span>&#43;</span></button>
+        <div class="faq-a"><p>The BCA program is 3 years (6 semesters). Each semester is approximately 6 months with theory and practical examinations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the eligibility criteria? <span>&#43;</span></button>
+        <div class="faq-a"><p>Candidates must have passed 10+2 (PUC/HSC) with Mathematics or Computer Science as a subject, from a recognized board. Minimum 45% aggregate required.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Are scholarships available? <span>&#43;</span></button>
+        <div class="faq-a"><p>Yes! We offer merit scholarships, government SC/ST scholarships, and KLE Society institutional scholarships. Up to 100% fee waiver for top rankers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is hostel facility available? <span>&#43;</span></button>
+        <div class="faq-a"><p>Yes, separate hostel facilities for boys and girls are available on campus with modern amenities, cafeteria, and 24/7 security.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What are the placement opportunities? <span>&#43;</span></button>
+        <div class="faq-a"><p>We have a 98% placement record with companies like TCS, Infosys, Wipro, HCL, Cognizant visiting campus every year. Average CTC is ₹4.5 LPA.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE: ADMISSIONS ===== -->
+<section id="page-admissions" class="page">
+  <div class="page-hero">
+    <h1>Admissions 2025-26</h1>
+    <p>Begin your journey to a brilliant tech career</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <!-- Steps -->
+    <div class="section-header">
+      <span class="section-tag">Process</span>
+      <h2>How to Apply</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4>Check Eligibility</h4>
+        <p>10+2 with Mathematics/Computer Science. Min 45% marks from any recognized board.</p>
+      </div>
+      <div class="step-arrow">&#8594;</div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4>Fill Application</h4>
+        <p>Complete the online application form with personal, academic, and contact details.</p>
+      </div>
+      <div class="step-arrow">&#8594;</div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4>Document Upload</h4>
+        <p>Upload 10th, 12th marksheets, transfer certificate, passport photo and ID proof.</p>
+      </div>
+      <div class="step-arrow">&#8594;</div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4>Merit List</h4>
+        <p>Merit list published based on 12th percentage. Students called for counseling.</p>
+      </div>
+      <div class="step-arrow">&#8594;</div>
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <h4>Fee Payment</h4>
+        <p>Confirm seat by paying the first semester fee online or at the admission counter.</p>
+      </div>
+    </div>
+
+    <!-- Application Form -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Apply Online</span>
+      <h2>Application Form</h2>
+    </div>
+    <div class="apply-form-wrap">
+      <form id="applyForm" onsubmit="submitApply(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="af_name" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="af_email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Mobile Number *</label>
+            <input type="tel" id="af_phone" placeholder="+91 XXXXXXXXXX" required />
+          </div>
+          <div class="form-group">
+            <label>Date of Birth *</label>
+            <input type="date" id="af_dob" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>10th Percentage *</label>
+            <input type="number" id="af_10th" placeholder="e.g. 85.5" min="0" max="100" required />
+          </div>
+          <div class="form-group">
+            <label>12th Percentage *</label>
+            <input type="number" id="af_12th" placeholder="e.g. 78.2" min="0" max="100" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>State</label>
+            <select id="af_state">
+              <option>Karnataka</option>
+              <option>Maharashtra</option>
+              <option>Goa</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="af_cat">
+              <option>General</option>
+              <option>SC</option>
+              <option>ST</option>
+              <option>OBC</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Address *</label>
+          <textarea id="af_addr" rows="3" placeholder="Enter your current address" required></textarea>
+        </div>
+        <div class="form-group full">
+          <label>Why do you want to join KLE BCA Nipani? *</label>
+          <textarea id="af_why" rows="3" placeholder="Tell us your motivation..." required></textarea>
+        </div>
+        <div id="applyMsg" class="form-msg"></div>
+        <button type="submit" class="btn-primary">Submit Application &#8594;</button>
+      </form>
+    </div>
+
+    <!-- Important Dates -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">2025-26 Dates</span>
+      <h2>Important Dates</h2>
+    </div>
+    <div class="dates-table-wrap">
+      <table class="dates-table">
+        <thead><tr><th>Event</th><th>Date</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Application Opens</td><td>June 1, 2025</td><td><span class="badge green">Open</span></td></tr>
+          <tr><td>Application Deadline</td><td>July 15, 2025</td><td><span class="badge yellow">Upcoming</span></td></tr>
+          <tr><td>Merit List (Round 1)</td><td>July 22, 2025</td><td><span class="badge yellow">Upcoming</span></td></tr>
+          <tr><td>Counseling</td><td>July 25–28, 2025</td><td><span class="badge yellow">Upcoming</span></td></tr>
+          <tr><td>Classes Begin</td><td>August 1, 2025</td><td><span class="badge blue">Scheduled</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE: FACULTY ===== -->
+<section id="page-faculty" class="page">
+  <div class="page-hero">
+    <h1>Our Faculty</h1>
+    <p>Expert educators committed to your success</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <div class="section-header">
+      <span class="section-tag">Academic Team</span>
+      <h2>Meet Your Mentors</h2>
+    </div>
+    <div class="faculty-grid">
+      <div class="faculty-card animate-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#0d5bbd,#1dbf73)">DR</div>
+        <div class="faculty-info">
+          <h3>Dr. Rajesh Kumar</h3>
+          <span class="faculty-role">Principal & HOD</span>
+          <p>PhD in Computer Science, IISc Bangalore. 20+ years of teaching and research in Algorithms and Data Structures.</p>
+          <div class="faculty-tags"><span>Ph.D</span><span>20+ Yrs</span><span>Algorithms</span></div>
+        </div>
+      </div>
+      <div class="faculty-card animate-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#9b4dca,#e91e63)">SP</div>
+        <div class="faculty-info">
+          <h3>Prof. Sunita Patil</h3>
+          <span class="faculty-role">Senior Lecturer – Web Tech</span>
+          <p>M.Tech from VTU. Specialist in Full-Stack Development, JavaScript, and React. Former Developer at Mindtree.</p>
+          <div class="faculty-tags"><span>M.Tech</span><span>15 Yrs</span><span>Web Dev</span></div>
+        </div>
+      </div>
+      <div class="faculty-card animate-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#ff6b35,#ffd700)">AM</div>
+        <div class="faculty-info">
+          <h3>Prof. Arun Malagi</h3>
+          <span class="faculty-role">Lecturer – Python & AI</span>
+          <p>MCA from KUD. Certified by Google in Data Analytics. Expertise in Python, Machine Learning, and Data Science.</p>
+          <div class="faculty-tags"><span>MCA</span><span>10 Yrs</span><span>AI/ML</span></div>
+        </div>
+      </div>
+      <div class="faculty-card animate-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#0a1628,#0d5bbd)">PD</div>
+        <div class="faculty-info">
+          <h3>Dr. Priya Desai</h3>
+          <span class="faculty-role">Lecturer – Database Systems</span>
+          <p>PhD in Information Systems. Expert in Oracle, MySQL, MongoDB, and Database Administration with 12 years experience.</p>
+          <div class="faculty-tags"><span>Ph.D</span><span>12 Yrs</span><span>Database</span></div>
+        </div>
+      </div>
+      <div class="faculty-card animate-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#1dbf73,#0a2818)">VH</div>
+        <div class="faculty-info">
+          <h3>Prof. Vijay Hugar</h3>
+          <span class="faculty-role">Lecturer – Java & OOP</span>
+          <p>MCA, Java Certified Professional. Extensive experience in Enterprise Java, Spring Framework, and Android Development.</p>
+          <div class="faculty-tags"><span>MCA</span><span>8 Yrs</span><span>Java</span></div>
+        </div>
+      </div>
+      <div class="faculty-card animate-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#e91e63,#ff6b35)">NK</div>
+        <div class="faculty-info">
+          <h3>Prof. Neha Kulkarni</h3>
+          <span class="faculty-role">Placement Officer</span>
+          <p>MBA, HR Specialist. Manages industry relations with 50+ companies. Has placed 1000+ students in top firms.</p>
+          <div class="faculty-tags"><span>MBA</span><span>Placement</span><span>HR</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE: CAMPUS ===== -->
+<section id="page-campus" class="page">
+  <div class="page-hero">
+    <h1>Campus Life</h1>
+    <p>Where learning meets living</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <!-- Gallery -->
+    <div class="section-header">
+      <span class="section-tag">Gallery</span>
+      <h2>Life at KLE BCA Nipani</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(0)" style="--col:linear-gradient(135deg,#0d5bbd 0%,#1dbf73 100%)">
+        <div class="gallery-overlay"><span>Computer Labs</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)" style="--col:linear-gradient(135deg,#9b4dca 0%,#e91e63 100%)">
+        <div class="gallery-overlay"><span>Annual Tech Fest</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(2)" style="--col:linear-gradient(135deg,#ff6b35 0%,#ffd700 100%)">
+        <div class="gallery-overlay"><span>Sports Day</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)" style="--col:linear-gradient(135deg,#0a1628 0%,#0d5bbd 100%)">
+        <div class="gallery-overlay"><span>Library</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(4)" style="--col:linear-gradient(135deg,#1dbf73 0%,#0a2818 100%)">
+        <div class="gallery-overlay"><span>Hackathon 2024</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(5)" style="--col:linear-gradient(135deg,#e91e63 0%,#ff6b35 100%)">
+        <div class="gallery-overlay"><span>Cultural Fest</span></div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+      <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+      <button class="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+      <div class="lb-content" id="lbContent"></div>
+      <button class="lb-next" onclick="lbNav(1)">&#8250;</button>
+    </div>
+
+    <!-- Events & Activities -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Events</span>
+      <h2>Activities & Clubs</h2>
+    </div>
+    <div class="activities-grid">
+      <div class="activity-card">&#127891; <strong>Tech Fest "Binary"</strong><p>Annual 3-day inter-college technical festival with hackathons, coding contests, and workshops.</p></div>
+      <div class="activity-card">&#127932; <strong>Cultural Fest "Tarang"</strong><p>Dance, music, drama, and art showcase by students celebrating India's diverse culture.</p></div>
+      <div class="activity-card">&#9917; <strong>Sports Week</strong><p>Cricket, volleyball, table tennis, chess, and athletics with inter-college competitions.</p></div>
+      <div class="activity-card">&#128104;&#8205;&#128187; <strong>Coding Club</strong><p>Weekly coding challenges, competitive programming, and open-source contribution drives.</p></div>
+      <div class="activity-card">&#127758; <strong>NSS Unit</strong><p>National Service Scheme — community outreach, blood donation drives, and rural tech literacy.</p></div>
+      <div class="activity-card">&#128247; <strong>Media Club</strong><p>Photography, videography, and the college magazine "ByteSize" published every semester.</p></div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Alumni Say</span>
+      <h2>Student Testimonials</h2>
+    </div>
+    <div class="testimonials-slider" id="testimonialsSlider">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <div class="testi-quote">&#10077;</div>
+          <p>"KLE BCA Nipani transformed my life. The faculty mentorship and industry exposure helped me land a ₹6 LPA package at TCS."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#0d5bbd">RS</div>
+            <div><strong>Rahul Shinde</strong><small>Software Engineer, TCS Pune | Batch 2022</small></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-quote">&#10077;</div>
+          <p>"The Python and AI courses here are exceptional. I got selected at Infosys with a ₹5 LPA offer, thanks to the preparation I received."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#9b4dca">PM</div>
+            <div><strong>Priya Murkute</strong><small>Data Analyst, Infosys Bangalore | Batch 2023</small></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-quote">&#10077;</div>
+          <p>"The campus life, coding clubs, and placement support at KLE BCA are unparalleled. I'm now working remotely for a US startup!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#1dbf73">AK</div>
+            <div><strong>Arjun Kamble</strong><small>Full-Stack Developer, Remote | Batch 2021</small></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-quote">&#10077;</div>
+          <p>"From a small town to working at Wipro — KLE BCA made this dream possible. The faculty here genuinely care about your growth."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#e91e63">SJ</div>
+            <div><strong>Sneha Joshi</strong><small>Systems Analyst, Wipro Hyderabad | Batch 2022</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-nav">
+        <button onclick="changeTestimonial(-1)">&#8249;</button>
+        <div id="testiDots"></div>
+        <button onclick="changeTestimonial(1)">&#8250;</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PAGE: PLACEMENTS ===== -->
+<section id="page-placements" class="page">
+  <div class="page-hero">
+    <h1>Placements</h1>
+    <p>Connecting talent with opportunity since 2005</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <!-- Stats -->
+    <div class="placement-stats">
+      <div class="ps-card">
+        <span data-count="98" class="big-count">0</span><span>%</span>
+        <small>Placement Rate</small>
+      </div>
+      <div class="ps-card">
+        <span class="big-count">&#8377;</span><span data-count="45" class="big-count">0</span><span>L</span>
+        <small>Avg. Package</small>
+      </div>
+      <div class="ps-card">
+        <span data-count="45" class="big-count">0</span><span>+</span>
+        <small>Recruiting Companies</small>
+      </div>
+      <div class="ps-card">
+        <span data-count="1200" class="big-count">0</span><span>+</span>
+        <small>Students Placed</small>
+      </div>
+    </div>
+
+    <!-- Chart UI -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Trends</span>
+      <h2>Placement Statistics</h2>
+    </div>
+    <div class="chart-container">
+      <div class="chart-legend">
+        <span><i style="background:#0d5bbd"></i> Students Placed</span>
+        <span><i style="background:#1dbf73"></i> Average Package (LPA)</span>
+      </div>
+      <div class="bar-chart" id="barChart">
+        <div class="bar-group">
+          <div class="bar" style="height:60%;background:#0d5bbd" title="2020: 89%"><span>2020</span></div>
+          <div class="bar" style="height:30%;background:#1dbf73" title="2020: 3.2 LPA"></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:70%;background:#0d5bbd" title="2021: 93%"><span>2021</span></div>
+          <div class="bar" style="height:40%;background:#1dbf73" title="2021: 3.8 LPA"></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:80%;background:#0d5bbd" title="2022: 95%"><span>2022</span></div>
+          <div class="bar" style="height:55%;background:#1dbf73" title="2022: 4.2 LPA"></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:88%;background:#0d5bbd" title="2023: 97%"><span>2023</span></div>
+          <div class="bar" style="height:65%;background:#1dbf73" title="2023: 4.5 LPA"></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:96%;background:#0d5bbd" title="2024: 98%"><span>2024</span></div>
+          <div class="bar" style="height:75%;background:#1dbf73" title="2024: 5 LPA"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Recruiters -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Our Partners</span>
+      <h2>Top Recruiters</h2>
+    </div>
+    <div class="recruiters-grid">
+      <div class="recruiter-logo">TCS</div>
+      <div class="recruiter-logo">Infosys</div>
+      <div class="recruiter-logo">Wipro</div>
+      <div class="recruiter-logo">HCL Tech</div>
+      <div class="recruiter-logo">Cognizant</div>
+      <div class="recruiter-logo">Accenture</div>
+      <div class="recruiter-logo">IBM</div>
+      <div class="recruiter-logo">Capgemini</div>
+      <div class="recruiter-logo">Tech Mahindra</div>
+      <div class="recruiter-logo">Mphasis</div>
+      <div class="recruiter-logo">Persistent</div>
+      <div class="recruiter-logo">KPIT</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE: CONTACT ===== -->
+<section id="page-contact" class="page">
+  <div class="page-hero">
+    <h1>Contact Us</h1>
+    <p>We're here to answer all your queries</p>
+  </div>
+  <div class="container" style="padding:4rem 1rem">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <div class="contact-item">
+          <span class="contact-icon">&#128205;</span>
+          <div>
+            <strong>Address</strong>
+            <p>KLE Society's BCA College,<br/>Rajashri Shahu Market Yard,<br/>Nipani – 591237, Belagavi District,<br/>Karnataka, India</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">&#128222;</span>
+          <div>
+            <strong>Phone</strong>
+            <p>+91 8334 224400<br/>+91 9876 543210 (Admissions)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">&#128140;</span>
+          <div>
+            <strong>Email</strong>
+            <p>principal@klebcanipani.edu.in<br/>admissions@klebcanipani.edu.in</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">&#128336;</span>
+          <div>
+            <strong>Office Hours</strong>
+            <p>Mon – Fri: 9:00 AM – 5:00 PM<br/>Sat: 9:00 AM – 1:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <h3>Send a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" id="cf_name" placeholder="Full Name" required />
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" id="cf_email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group full">
+            <label>Subject *</label>
+            <input type="text" id="cf_subject" placeholder="What is this regarding?" required />
+          </div>
+          <div class="form-group full">
+            <label>Message *</label>
+            <textarea id="cf_msg" rows="5" placeholder="Your message here..." required></textarea>
+          </div>
+          <div id="contactMsg" class="form-msg"></div>
+          <button type="submit" class="btn-primary">Send Message &#8594;</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3842.0!2d74.3823!3d16.4048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc00c5f99999999%3A0x1111111111111111!2sNipani%2C+Karnataka!5e0!3m2!1sen!2sin!4v1234567890"
+        allowfullscreen=""
+        loading="lazy"
+        title="KLE BCA Nipani Location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE: LOGIN ===== -->
+<section id="page-login" class="page">
+  <div class="login-page">
+    <div class="login-left">
+      <div class="login-brand">
+        <div class="logo-badge large">KLE</div>
+        <h2>BCA Nipani</h2>
+        <p>Student & Admin Portal</p>
+      </div>
+      <div class="login-decorations">
+        <div class="login-deco-circle c1"></div>
+        <div class="login-deco-circle c2"></div>
+        <div class="login-deco-circle c3"></div>
+      </div>
+    </div>
+    <div class="login-right">
+      <div class="login-box">
+        <h2>Welcome Back</h2>
+        <p>Sign in to access your dashboard</p>
+
+        <div class="role-toggle">
+          <button class="role-btn active" id="roleStudent" onclick="setRole('student')">Student</button>
+          <button class="role-btn" id="roleAdmin" onclick="setRole('admin')">Admin</button>
+        </div>
+
+        <form id="loginForm" onsubmit="doLogin(event)">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" placeholder="your@email.com" value="sarvesh2511@gmail.com" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="pass-wrap">
+              <input type="password" id="loginPass" placeholder="Enter password" value="12345" required />
+              <button type="button" onclick="togglePass()" class="pass-eye">&#128065;</button>
+            </div>
+          </div>
+          <div id="loginMsg" class="form-msg"></div>
+          <button type="submit" class="btn-primary full-width" id="loginBtn">Login &#8594;</button>
+        </form>
+        <p class="login-back"><a href="#" onclick="showPage('home')">&#8592; Back to Website</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDENT DASHBOARD ===== -->
+<section id="page-student-dashboard" class="page dashboard">
+  <div class="dash-sidebar">
+    <div class="dash-logo">
+      <div class="logo-badge">KLE</div>
+      <span>Student</span>
+    </div>
+    <nav class="dash-nav">
+      <a class="dash-link active" onclick="showDashSection('profile')">&#128100; Profile</a>
+      <a class="dash-link" onclick="showDashSection('courses-sd')">&#128218; My Courses</a>
+      <a class="dash-link" onclick="showDashSection('attendance')">&#128197; Attendance</a>
+      <a class="dash-link" onclick="showDashSection('announcements-sd')">&#128226; Announcements</a>
+      <a class="dash-link" onclick="showDashSection('results')">&#127942; Results</a>
+    </nav>
+    <button class="dash-logout" onclick="logout()">&#128682; Logout</button>
+  </div>
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <h2 id="dashSectionTitle">My Profile</h2>
+      <div class="dash-user-info">
+        <span>Welcome, Sarvesh!</span>
+        <div class="dash-avatar">SA</div>
+      </div>
+    </div>
+
+    <!-- Profile Section -->
+    <div id="dash-profile" class="dash-section active">
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-avatar-big">SA</div>
+          <h3>Sarvesh Appa</h3>
+          <span class="profile-batch">BCA | 2022-25 Batch</span>
+          <div class="profile-stat-mini">
+            <div><strong>3rd</strong><small>Year</small></div>
+            <div><strong>87%</strong><small>Avg Marks</small></div>
+            <div><strong>92%</strong><small>Attendance</small></div>
+          </div>
+          <button class="btn-outline-sm">Edit Profile</button>
+        </div>
+        <div class="profile-details">
+          <div class="detail-row"><label>Full Name</label><span>Sarvesh Appa</span></div>
+          <div class="detail-row"><label>Roll Number</label><span>KLE/BCA/22/045</span></div>
+          <div class="detail-row"><label>Email</label><span>sarvesh2511@gmail.com</span></div>
+          <div class="detail-row"><label>Mobile</label><span>+91 98765 43210</span></div>
+          <div class="detail-row"><label>Semester</label><span>6th Semester</span></div>
+          <div class="detail-row"><label>Division</label><span>A</span></div>
+          <div class="detail-row"><label>Admission Year</label><span>2022</span></div>
+          <div class="detail-row"><label>Category</label><span>General</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div id="dash-courses-sd" class="dash-section">
+      <div class="enrolled-grid">
+        <div class="enrolled-card">
+          <div class="ec-icon" style="background:#0d5bbd">PY</div>
+          <div><h4>Python Programming</h4><p>Prof. Arun Malagi</p><div class="progress-bar"><div style="width:80%"></div></div><small>80% Complete</small></div>
+        </div>
+        <div class="enrolled-card">
+          <div class="ec-icon" style="background:#9b4dca">ML</div>
+          <div><h4>Machine Learning</h4><p>Dr. Rajesh Kumar</p><div class="progress-bar"><div style="width:55%"></div></div><small>55% Complete</small></div>
+        </div>
+        <div class="enrolled-card">
+          <div class="ec-icon" style="background:#1dbf73">DB</div>
+          <div><h4>Database Systems</h4><p>Dr. Priya Desai</p><div class="progress-bar"><div style="width:90%"></div></div><small>90% Complete</small></div>
+        </div>
+        <div class="enrolled-card">
+          <div class="ec-icon" style="background:#ff6b35">WD</div>
+          <div><h4>Web Development</h4><p>Prof. Sunita Patil</p><div class="progress-bar"><div style="width:70%"></div></div><small>70% Complete</small></div>
+        </div>
+        <div class="enrolled-card">
+          <div class="ec-icon" style="background:#e91e63">JV</div>
+          <div><h4>Java Programming</h4><p>Prof. Vijay Hugar</p><div class="progress-bar"><div style="width:65%"></div></div><small>65% Complete</small></div>
+        </div>
+        <div class="enrolled-card">
+          <div class="ec-icon" style="background:#0a1628">CC</div>
+          <div><h4>Cloud Computing</h4><p>Dr. Rajesh Kumar</p><div class="progress-bar"><div style="width:40%"></div></div><small>40% Complete</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attendance Section -->
+    <div id="dash-attendance" class="dash-section">
+      <div class="attendance-table-wrap">
+        <table class="att-table">
+          <thead><tr><th>Subject</th><th>Total Classes</th><th>Attended</th><th>Percentage</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Python Programming</td><td>40</td><td>38</td><td>95%</td><td><span class="badge green">Good</span></td></tr>
+            <tr><td>Machine Learning</td><td>35</td><td>30</td><td>86%</td><td><span class="badge green">Good</span></td></tr>
+            <tr><td>Database Systems</td><td>42</td><td>42</td><td>100%</td><td><span class="badge green">Perfect</span></td></tr>
+            <tr><td>Web Development</td><td>38</td><td>33</td><td>87%</td><td><span class="badge green">Good</span></td></tr>
+            <tr><td>Java Programming</td><td>36</td><td>28</td><td>78%</td><td><span class="badge yellow">Average</span></td></tr>
+            <tr><td>Cloud Computing</td><td>30</td><td>22</td><td>73%</td><td><span class="badge red">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="att-summary">
+        <div class="att-circle" style="--pct:86%">
+          <span>86%</span>
+          <small>Overall</small>
+        </div>
+        <p>Minimum 75% attendance required. You are above the threshold. Keep it up!</p>
+      </div>
+    </div>
+
+    <!-- Announcements for Student -->
+    <div id="dash-announcements-sd" class="dash-section">
+      <div class="ann-list">
+        <div class="ann-item urgent"><span class="ann-badge urgent">Urgent</span><h4>TCS Campus Drive Registration</h4><p>Register for TCS campus drive happening on July 5th. Last date to register: June 30.</p><small>Posted by Admin | June 1, 2025</small></div>
+        <div class="ann-item"><span class="ann-badge">Academic</span><h4>Semester Exam Schedule Released</h4><p>6th semester examinations will begin from July 20, 2025. Timetable available below.</p><small>Posted by Admin | May 28, 2025</small></div>
+        <div class="ann-item"><span class="ann-badge">Workshop</span><h4>AI/ML Workshop Registration Open</h4><p>Register for the two-day AI/ML hands-on workshop. Limited seats. First come, first serve.</p><small>Posted by Admin | May 25, 2025</small></div>
+        <div class="ann-item"><span class="ann-badge">Fee</span><h4>Semester Fee Due Date</h4><p>Last date for 6th semester fee payment without fine: June 15, 2025.</p><small>Posted by Admin | May 20, 2025</small></div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="dash-results" class="dash-section">
+      <div class="results-grid">
+        <div class="result-sem-card">
+          <h4>5th Semester Results</h4>
+          <table class="res-table">
+            <thead><tr><th>Subject</th><th>IA</th><th>SEE</th><th>Total</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td>Python</td><td>28</td><td>62</td><td>90</td><td>A+</td></tr>
+              <tr><td>DBMS</td><td>25</td><td>58</td><td>83</td><td>A</td></tr>
+              <tr><td>OS</td><td>22</td><td>55</td><td>77</td><td>B+</td></tr>
+              <tr><td>Web Tech</td><td>27</td><td>60</td><td>87</td><td>A</td></tr>
+            </tbody>
+          </table>
+          <div class="result-sgpa"><strong>SGPA: 8.7</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADMIN DASHBOARD ===== -->
+<section id="page-admin-dashboard" class="page dashboard admin-dash">
+  <div class="dash-sidebar admin-sidebar">
+    <div class="dash-logo">
+      <div class="logo-badge" style="background:#e91e63">AD</div>
+      <span>Admin</span>
+    </div>
+    <nav class="dash-nav">
+      <a class="dash-link active" onclick="showAdminSection('overview')">&#128202; Overview</a>
+      <a class="dash-link" onclick="showAdminSection('students')">&#128101; Students</a>
+      <a class="dash-link" onclick="showAdminSection('courses-ad')">&#128218; Courses</a>
+      <a class="dash-link" onclick="showAdminSection('announcements-ad')">&#128226; Announcements</a>
+    </nav>
+    <button class="dash-logout" onclick="logout()">&#128682; Logout</button>
+  </div>
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <h2 id="adminSectionTitle">Dashboard Overview</h2>
+      <div class="dash-user-info">
+        <span>Admin Panel</span>
+        <div class="dash-avatar" style="background:#e91e63">AD</div>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div id="admin-overview" class="dash-section active">
+      <div class="admin-stats-grid">
+        <div class="admin-stat"><span class="as-icon">&#128101;</span><strong data-count="240">0</strong><small>Total Students</small></div>
+        <div class="admin-stat"><span class="as-icon">&#128218;</span><strong data-count="12">0</strong><small>Courses Active</small></div>
+        <div class="admin-stat"><span class="as-icon">&#127942;</span><strong data-count="98">0</strong><small>% Placed</small></div>
+        <div class="admin-stat"><span class="as-icon">&#128226;</span><strong data-count="8">0</strong><small>Announcements</small></div>
+      </div>
+      <div class="admin-quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="qa-grid">
+          <button class="qa-btn" onclick="showAdminSection('students')">&#43; Add Student</button>
+          <button class="qa-btn" onclick="showAdminSection('courses-ad')">&#43; Add Course</button>
+          <button class="qa-btn" onclick="showAdminSection('announcements-ad')">&#43; Post Announcement</button>
+          <button class="qa-btn" onclick="downloadBrochure()">&#8595; Download Report</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Students -->
+    <div id="admin-students" class="dash-section">
+      <div class="admin-toolbar">
+        <input type="text" id="studentSearch" placeholder="Search students..." oninput="filterStudents()" />
+        <button class="btn-primary sm" onclick="addStudent()">&#43; Add Student</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="studentsTable">
+          <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Semester</th><th>Attendance</th><th>Actions</th></tr></thead>
+          <tbody id="studentsBody">
+            <tr><td>KLE/22/001</td><td>Sarvesh Appa</td><td>sarvesh2511@gmail.com</td><td>6th</td><td>86%</td><td><button onclick="editStudent(this)">&#9998;</button><button onclick="deleteStudent(this)">&#128465;</button></td></tr>
+            <tr><td>KLE/22/002</td><td>Priya Sharma</td><td>priya@email.com</td><td>6th</td><td>91%</td><td><button onclick="editStudent(this)">&#9998;</button><button onclick="deleteStudent(this)">&#128465;</button></td></tr>
+            <tr><td>KLE/22/003</td><td>Rahul Patil</td><td>rahul@email.com</td><td>6th</td><td>78%</td><td><button onclick="editStudent(this)">&#9998;</button><button onclick="deleteStudent(this)">&#128465;</button></td></tr>
+            <tr><td>KLE/23/001</td><td>Anita Desai</td><td>anita@email.com</td><td>4th</td><td>88%</td><td><button onclick="editStudent(this)">&#9998;</button><button onclick="deleteStudent(this)">&#128465;</button></td></tr>
+            <tr><td>KLE/23/002</td><td>Kiran Mali</td><td>kiran@email.com</td><td>4th</td><td>95%</td><td><button onclick="editStudent(this)">&#9998;</button><button onclick="deleteStudent(this)">&#128465;</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Courses Admin -->
+    <div id="admin-courses-ad" class="dash-section">
+      <div class="admin-toolbar">
+        <h3>Manage Courses</h3>
+        <button class="btn-primary sm" onclick="addCourse()">&#43; Add Course</button>
+      </div>
+      <div class="courses-admin-grid" id="coursesAdminGrid">
+        <div class="cag-card"><div class="cag-info"><strong>Python Programming</strong><span>6th Sem | 4 Credits | Prof. Arun</span></div><div class="cag-actions"><button onclick="editCourse(this)">&#9998;</button><button onclick="deleteCourse(this)">&#128465;</button></div></div>
+        <div class="cag-card"><div class="cag-info"><strong>Machine Learning</strong><span>6th Sem | 4 Credits | Dr. Rajesh</span></div><div class="cag-actions"><button onclick="editCourse(this)">&#9998;</button><button onclick="deleteCourse(this)">&#128465;</button></div></div>
+        <div class="cag-card"><div class="cag-info"><strong>Database Systems</strong><span>5th Sem | 4 Credits | Dr. Priya</span></div><div class="cag-actions"><button onclick="editCourse(this)">&#9998;</button><button onclick="deleteCourse(this)">&#128465;</button></div></div>
+        <div class="cag-card"><div class="cag-info"><strong>Web Development</strong><span>4th Sem | 3 Credits | Prof. Sunita</span></div><div class="cag-actions"><button onclick="editCourse(this)">&#9998;</button><button onclick="deleteCourse(this)">&#128465;</button></div></div>
+      </div>
+    </div>
+
+    <!-- Announcements Admin -->
+    <div id="admin-announcements-ad" class="dash-section">
+      <form id="annForm" onsubmit="postAnnouncement(event)">
+        <div class="form-group">
+          <label>Announcement Title *</label>
+          <input type="text" id="ann_title" placeholder="Enter title" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category</label>
+            <select id="ann_cat">
+              <option>General</option>
+              <option>Urgent</option>
+              <option>Academic</option>
+              <option>Placement</option>
+              <option>Event</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="ann_date" />
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Message *</label>
+          <textarea id="ann_msg" rows="4" placeholder="Write your announcement here..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Post Announcement</button>
+      </form>
+      <div id="adminAnnList" class="ann-list" style="margin-top:2rem"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CHATBOT ===== -->
+<div id="chatbot" class="chatbot-widget">
+  <div class="chatbot-header" onclick="toggleChat()">
+    <span>&#129302; KLE Assistant</span>
+    <span id="chatToggleIcon">&#8743;</span>
+  </div>
+  <div class="chatbot-body" id="chatBody">
+    <div class="chat-msgs" id="chatMsgs">
+      <div class="chat-msg bot">Hi! I'm the KLE BCA Nipani assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatEnter(event)" />
+      <button onclick="sendChat()">&#10148;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="logo-badge">KLE</div>
+        <div>
+          <strong>BCA Nipani</strong>
+          <small>KLE Society</small>
+        </div>
+      </div>
+      <p>Empowering students with technology education and values since 2001.</p>
+      <div class="footer-social">
+        <a href="#" title="Facebook">&#128241;</a>
+        <a href="#" title="Instagram">&#128247;</a>
+        <a href="#" title="LinkedIn">&#128188;</a>
+        <a href="#" title="YouTube">&#127910;</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#" onclick="showPage('about')">About Us</a>
+      <a href="#" onclick="showPage('courses')">Courses</a>
+      <a href="#" onclick="showPage('admissions')">Admissions</a>
+      <a href="#" onclick="showPage('faculty')">Faculty</a>
+      <a href="#" onclick="showPage('placements')">Placements</a>
+    </div>
+    <div class="footer-links">
+      <h4>Student</h4>
+      <a href="#" onclick="showPage('login')">Student Login</a>
+      <a href="#" onclick="showPage('campus')">Campus Life</a>
+      <a href="#" onclick="downloadBrochure()">Download Brochure</a>
+      <a href="#" onclick="showPage('contact')">Contact Us</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>&#128205; Nipani – 591237, Karnataka</p>
+      <p>&#128222; +91 8334 224400</p>
+      <p>&#128140; principal@klebcanipani.edu.in</p>
+      <button class="btn-primary sm" onclick="showPage('admissions')">Apply Now</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 KLE Society's BCA College, Nipani. All Rights Reserved.</p>
+    <div><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
